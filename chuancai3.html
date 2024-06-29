@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>寻味之旅：探寻八大菜系</title>
+		<style>
+			body {
+				font-family: Arial, sans-serif;
+				margin: 0;
+				padding: 0;
+				background-image: url('img/beijing.png');
+				background-size: cover;
+			}
+			
+			.navbar {
+				background-color: #8B4513;
+				overflow: hidden;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				position: fixed;
+				top: 0;
+				width: 100%;
+				z-index: 1000;
+			}
+			
+			.navbar a {
+				color: white;
+				text-align: center;
+				text-decoration: none;
+				padding: 14px 20px;
+				font-size: 17px;
+				opacity: 0.6;
+			}
+			
+			.navbar a.current {
+				opacity: 1;
+				font-weight: bold;
+			}
+			
+			.navbar a:hover {
+				background-color: #A0522D;
+			}
+			
+			.sidebar {
+				background-color: #D2B48C;
+				position: fixed;
+				left: 0;
+				top: 0;
+				width: 100px;
+				height: 100%;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+			}
+			
+			.sidebar a {
+				color: #fff;
+				text-decoration: none;
+				margin: 10px 0;
+				padding: 10px;
+				border-radius: 5px;
+				opacity: 0.6;
+				transition: opacity 0.3s ease;
+			}
+			
+			.sidebar a:hover {
+				opacity: 1;
+				background-color: #B8860B;
+			}
+			
+			.content {
+				margin-left: 100px;
+				padding: 20px;
+				text-align: left;
+				font-family: Arial, sans-serif;
+				font-size: 16px;
+			}
+			
+			.page {
+				display: none;
+				/* 初始隐藏各个页面 */
+			}
+			
+			.page.active {
+				display: block;
+				/* 显示当前活跃页面 */
+			}
+			
+			.timeline {
+				position: relative;
+				/* 确保timeline容器可以定位其内部元素 */
+			}
+			
+			.yu {
+				position: absolute;
+				/* 使用绝对定位 */
+				top: 80px;
+				/* 距离页面顶部的间距 */
+				left: 130px;
+				/* 距离页面左侧的间距 */
+				width: 160px;
+				/* 设置宽度 */
+				display: flex;
+				/* 使用 flex 布局 */
+				align-items: center;
+				/* 垂直居中 */
+			}
+			
+			.douya {
+				position: absolute;
+				/* 使用绝对定位 */
+				top: 230px;
+				/* 距离页面顶部的间距 */
+				left: 130px;
+				/* 距离页面左侧的间距 */
+				width: 150px;
+				/* 设置宽度 */
+				display: flex;
+				/* 使用 flex 布局 */
+				align-items: center;
+				/* 垂直居中 */
+			}
+			
+			.danqing {
+				position: absolute;
+				/* 使用绝对定位 */
+				top: 390px;
+				/* 距离页面顶部的间距 */
+				left: 130px;
+				/* 距离页面左侧的间距 */
+				width: 150px;
+				/* 设置宽度 */
+				display: flex;
+				/* 使用 flex 布局 */
+				align-items: center;
+				/* 垂直居中 */
+			}
+			
+			.yan {
+				position: absolute;
+				/* 使用绝对定位 */
+				top: 540px;
+				/* 距离页面顶部的间距 */
+				left: 130px;
+				/* 距离页面左侧的间距 */
+				width: 150px;
+				/* 设置宽度 */
+				display: flex;
+				/* 使用 flex 布局 */
+				align-items: center;
+				/* 垂直居中 */
+			}
+			
+			.doubanjiang {
+				position: absolute;
+				/* 使用绝对定位 */
+				top: 80px;
+				/* 距离页面顶部的间距 */
+				left: 1200px;
+				/* 距离页面左侧的间距 */
+				width: 150px;
+				/* 设置宽度 */
+				display: flex;
+				/* 使用 flex 布局 */
+				align-items: center;
+				/* 垂直居中 */
+			}
+			
+			.jiang {
+				position: absolute;
+				/* 使用绝对定位 */
+				top: 260px;
+				/* 距离页面顶部的间距 */
+				left: 1200px;
+				/* 距离页面左侧的间距 */
+				width: 150px;
+				/* 设置宽度 */
+				display: flex;
+				/* 使用 flex 布局 */
+				align-items: center;
+				/* 垂直居中 */
+			}
+			
+			.lajiao {
+				position: absolute;
+				/* 使用绝对定位 */
+				top: 390px;
+				/* 距离页面顶部的间距 */
+				left: 1200px;
+				/* 距离页面左侧的间距 */
+				width: 150px;
+				/* 设置宽度 */
+				display: flex;
+				/* 使用 flex 布局 */
+				align-items: center;
+				/* 垂直居中 */
+			}
+			
+			.suanmo {
+				position: absolute;
+				/* 使用绝对定位 */
+				top: 560px;
+				/* 距离页面顶部的间距 */
+				left: 1200px;
+				/* 距离页面左侧的间距 */
+				width: 150px;
+				/* 设置宽度 */
+				display: flex;
+				/* 使用 flex 布局 */
+				align-items: center;
+				/* 垂直居中 */
+				\
+			}
+			
+			.guo {
+				position: absolute;
+				top: 60%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				width: 810px;
+				/* 设置宽度为 300 像素 */
+				height: 540px;
+				/* 设置高度为 200 像素 */
+			}
+			
+			.overlay {
+				position: absolute;
+				top: 100px;
+				/* 距离页面顶部的距离 */
+				left: 50%;
+				/* 居中 */
+				transform: translateX(-50%);
+				color: yellow;
+				/* 黑色文字 */
+				padding: 10px 20px;
+				/* 内边距 */
+				font-size: 30px;
+				/* 字体大小 */
+				border: 2px solid black;
+				/* 黑色描边 */
+			}
+			
+			.cook-button {
+				background-color: #D6E9CA;
+				/* 绿色背景 */
+				color: white;
+				/* 白色文本 */
+				border: none;
+				/* 去掉边框 */
+				padding: 15px 32px;
+				/* 按钮内边距 */
+				text-align: center;
+				/* 文本居中 */
+				text-decoration: none;
+				/* 去掉下划线 */
+				display: inline-block;
+				/* 行内块级元素 */
+				font-size: 30px;
+				/* 字体大小 */
+				margin-top: 20px;
+				/* 上边距 */
+				cursor: pointer;
+				/* 鼠标指针形状 */
+				border-radius: 5px;
+				/* 圆角边框 */
+				transition-duration: 0.4s;
+				/* 过渡效果时长 */
+				position: fixed;
+				left: 50%;
+				transform: translateX(-50%);
+				bottom: 50px;
+				/* 距离底部的距离 */
+			}
+			
+			.shuizhuyu {
+				position: absolute;
+				top: 60%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				width: 780px;
+				/* 设置宽度为 300 像素 */
+				height: 520px;
+				/* 设置高度为 200 像素 */
+				display: none;
+				/* 初始隐藏水煮鱼图片 */
+			}
+		</style>
+
+	</head>
+
+	<body>
+
+		<!-- 主导航栏 -->
+		<div class="navbar">
+			<a href="map.html">返回</a>
+			<!-- 链接页面 -->
+			<a href="chuancai1.html">起源发展</a>
+			<a href="chuancai2.html">详细</a>
+			<!-- 链接页面 -->
+			<a href="chuancai3.html" class="current">菜品制作</a>
+			<!-- 链接页面 -->
+		</div>
+
+		<!-- 主内容区域 -->
+		<div class="content">
+			<!-- 这里添加你的内容 -->
+
+			<!-- 添加图片 -->
+			<img src="img/yu.png" alt="鱼的图片" class="yu" draggable="true">
+			<img src="img/douya.png" alt="豆芽的图片" class="douya" draggable="true">
+			<img src="img/danqing.png" alt="蛋清的图片" class="danqing" draggable="true">
+			<img src="img/yan.png" alt="盐的图片" class="yan" draggable="true">
+			<img src="img/doubanjiang.png" alt="豆瓣酱的图片" class="doubanjiang" draggable="true">
+			<img src="img/jiang.png" alt="姜的图片" class="jiang" draggable="true">
+			<img src="img/lajiao.png" alt="辣椒的图片" class="lajiao" draggable="true">
+			<img src="img/suanmo.png" alt="蒜末的图片" class="suanmo" draggable="true">
+
+			<img src="img/guo.png" alt="锅的图片" class="guo">
+			<img src="img/shuizhuyu.png" alt="水煮鱼的图片" class="shuizhuyu">
+
+		</div>
+
+		<div class="overlay">
+			请拖动食材放入锅中
+		</div>
+
+		<script>
+			document.addEventListener("DOMContentLoaded", function() {
+				// 获取图片元素
+				const suanmo = document.querySelector(".suanmo");
+				const yu = document.querySelector(".yu");
+				const guo = document.querySelector(".guo");
+				const overlay = document.querySelector(".overlay");
+				const douya = document.querySelector(".douya"); // 新添加的豆芽元素
+				const danqing = document.querySelector(".danqing");
+				const yan = document.querySelector(".yan");
+				const doubanjiang = document.querySelector(".doubanjiang");
+				const jiang = document.querySelector(".jiang");
+				const lajiao = document.querySelector(".lajiao");
+
+				// 计数器，用于记录放入食材的数量
+				let ingredientCount = 0;
+
+				// 添加拖动事件监听器 - 蒜末
+				suanmo.addEventListener("dragstart", function(event) {
+					event.dataTransfer.setData("text/plain", "suanmo");
+				});
+
+				// 添加拖动事件监听器 - 鱼
+				yu.addEventListener("dragstart", function(event) {
+					event.dataTransfer.setData("text/plain", "yu");
+				});
+
+				// 添加拖动事件监听器 - 豆芽
+				douya.addEventListener("dragstart", function(event) {
+					event.dataTransfer.setData("text/plain", "douya");
+				});
+
+				// 添加拖动事件监听器 - 蛋清
+				danqing.addEventListener("dragstart", function(event) {
+					event.dataTransfer.setData("text/plain", "danqing");
+				});
+
+				// 添加拖动事件监听器 - 盐
+				yan.addEventListener("dragstart", function(event) {
+					event.dataTransfer.setData("text/plain", "yan");
+				});
+
+				// 添加拖动事件监听器 - 豆瓣酱
+				doubanjiang.addEventListener("dragstart", function(event) {
+					event.dataTransfer.setData("text/plain", "doubanjiang");
+				});
+
+				// 添加拖动事件监听器 - 姜
+				jiang.addEventListener("dragstart", function(event) {
+					event.dataTransfer.setData("text/plain", "jiang");
+				});
+
+				// 添加拖动事件监听器 - 辣椒
+				lajiao.addEventListener("dragstart", function(event) {
+					event.dataTransfer.setData("text/plain", "lajiao");
+				});
+
+				// 添加放置事件监听器
+				guo.addEventListener("dragover", function(event) {
+					event.preventDefault(); // 阻止默认的处理方式
+				});
+
+				guo.addEventListener("drop", function(event) {
+					event.preventDefault(); // 阻止默认的处理方式
+					const data = event.dataTransfer.getData("text/plain");
+
+					if(data === "suanmo") {
+						// 将蒜末放入锅中
+						ingredientCount++;
+						overlay.textContent = "成功将蒜末放进锅中！请放入下一个食材";
+						// 隐藏蒜末图片（可选）
+						suanmo.style.display = "none";
+					} else if(data === "yu") {
+						// 将鱼放入锅中
+						ingredientCount++;
+						overlay.textContent = "成功将鱼放进锅中！请放入下一个食材";
+						// 隐藏鱼的图片（可选）
+						yu.style.display = "none";
+					} else if(data === "douya") {
+						// 将豆芽放入锅中
+						ingredientCount++;
+						overlay.textContent = "成功将豆芽放进锅中！请放入下一个食材";
+						// 隐藏豆芽图片（可选）
+						douya.style.display = "none";
+					} else if(data === "danqing") {
+						// 将蛋清放入锅中
+						ingredientCount++;
+						overlay.textContent = "成功将蛋清放进锅中！请放入下一个食材";
+						// 隐藏蛋清的图片（可选）
+						danqing.style.display = "none";
+					} else if(data === "yan") {
+						// 将盐放入锅中
+						ingredientCount++;
+						overlay.textContent = "成功将盐放进锅中！请放入下一个食材";
+						// 隐藏盐的图片（可选）
+						yan.style.display = "none";
+					} else if(data === "doubanjiang") {
+						// 将豆瓣酱放入锅中
+						ingredientCount++;
+						overlay.textContent = "成功将豆瓣酱放进锅中！请放入下一个食材";
+						// 隐藏豆瓣酱的图片（可选）
+						doubanjiang.style.display = "none";
+					} else if(data === "jiang") {
+						// 将姜放入锅中
+						ingredientCount++;
+						overlay.textContent = "成功将姜放进锅中！请放入下一个食材";
+						// 隐藏姜的图片（可选）
+						jiang.style.display = "none";
+					} else if(data === "lajiao") {
+						// 将辣椒放入锅中
+						ingredientCount++;
+						overlay.textContent = "成功将辣椒放进锅中！请放入下一个食材";
+						// 隐藏辣椒的图片（可选）
+						lajiao.style.display = "none";
+					} else {
+						// 其他情况，理论上不应该执行到这里
+						overlay.textContent = "未知食材放入锅中！请放入下一个食材";
+					}
+
+					// 当放入第8个食材时显示完成消息和立即烹饪按钮
+					if(ingredientCount === 8) {
+						overlay.textContent = "食材已放入完成！";
+
+						// 创建立即烹饪按钮
+						const cookButton = document.createElement("button");
+						cookButton.textContent = "立即烹饪";
+						cookButton.classList.add("cook-button");
+
+						// 监听立即烹饪按钮的点击事件
+						cookButton.addEventListener('click', function() {
+							// 显示水煮鱼图片
+							const shuizhuyu = document.querySelector('.shuizhuyu');
+							shuizhuyu.style.display = 'block';
+
+							// 隐藏锅图片（假设锅的类名为 .guo）
+							const guoImage = document.querySelector('.guo');
+							guoImage.style.display = 'none';
+
+							// 更新提示文字为 "烹饪完成！"
+							overlay.textContent = "烹饪完成！";
+
+							// 隐藏立即烹饪按钮（假设按钮的类名为 .cook-button）
+							cookButton.style.display = 'none';
+						});
+
+						// 将按钮添加到 overlay 的后面（页面底部）
+						overlay.insertAdjacentElement('afterend', cookButton);
+					}
+
+				});
+			});
+		</script>
+
+	</body>
+
+</html>

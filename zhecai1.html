@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>寻味之旅：探寻八大菜系</title>
+		<style>
+			body {
+				margin: 0;
+				padding: 0;
+				background-image: url('img/beijing.png');
+				background-size: cover;
+			}
+			
+			.navbar {
+				background-color: #8B4513;
+				overflow: hidden;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				position: fixed;
+				top: 0;
+				width: 100%;
+				z-index: 1000;
+			}
+			
+			.navbar a {
+				color: white;
+				text-align: center;
+				text-decoration: none;
+				padding: 14px 20px;
+				font-size: 17px;
+				opacity: 0.6;
+			}
+			
+			.navbar a.current {
+				opacity: 1;
+				font-weight: bold;
+			}
+			
+			.navbar a:hover {
+				background-color: #A0522D;
+			}
+			
+			.sidebar {
+				background-color: #D2B48C;
+				position: fixed;
+				left: 0;
+				top: 0;
+				width: 100px;
+				height: 100%;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+			}
+			
+			.sidebar a {
+				color: #fff;
+				text-decoration: none;
+				margin: 10px 0;
+				padding: 10px;
+				border-radius: 5px;
+				opacity: 0.6;
+				transition: opacity 0.3s ease;
+			}
+			
+			.sidebar a:hover {
+				opacity: 1;
+				background-color: #B8860B;
+			}
+			
+			.content {
+				margin-left: 100px;
+				padding: 20px;
+				text-align: left;
+				font-family: Arial, sans-serif;
+				font-size: 16px;
+			}
+			
+			.page {
+				display: none;
+				/* 初始隐藏各个页面 */
+			}
+			
+			.page.active {
+				display: block;
+				/* 显示当前活跃页面 */
+			}
+			
+			.timeline {
+				position: relative;
+				/* 确保timeline容器可以定位其内部元素 */
+			}
+			
+			.circle {
+				position: absolute;
+				/* 相对于timeline定位 */
+				width: 25px;
+				/* 圆圈的宽度 */
+				height: 25px;
+				/* 圆圈的高度 */
+				background-color: floralwhite;
+				/* 圆圈的背景颜色 */
+				border-radius: 50%;
+				/* 将正方形变成圆形 */
+				left: 50%;
+				/* 将圆圈的左侧边缘定位到时间线的中心 */
+				transform: translateX(-50%);
+				/* 在X轴上居中 */
+				border: 2px solid black;
+				/* 添加一个 2 像素宽度的灰色边框 */
+			}
+			
+			.tooltip {
+				position: absolute;
+				/* 相对于timeline定位 */
+				color: black;
+				/* 提示信息的文本颜色 */
+				padding: 5px 10px;
+				/* 提示信息的内边距 */
+				border-radius: 5px;
+				/* 提示信息的圆角 */
+				font-size: 25px;
+				/* 提示信息的字体大小 */
+			}
+			
+			.line {
+				position: absolute;
+				/* 相对于timeline定位 */
+				width: 5px;
+				/* 竖线的宽度 */
+				height: 600px;
+				/* 竖线的高度，与timeline容器高度相同 */
+				background-color: black;
+				/* 竖线的颜色 */
+				left: 50%;
+				/* 将竖线的左侧边缘定位到时间线的中心 */
+				transform: translateX(-50%);
+				/* 在X轴上居中 */
+			}
+			
+			.content2 {
+				position: absolute;
+				background-color: #f0f0f0;
+				border: 1px solid #ccc;
+				padding: 2px;
+				border-radius: 5px;
+				max-width: 520px;
+				z-index: 1;
+				font-size: 20px;
+				display: none;
+				/* 初始隐藏 */
+				pointer-events: none;
+				/* 防止tooltip影响鼠标事件 */
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<!-- 主导航栏 -->
+		<div class="navbar">
+			<a href="map.html">返回</a>
+			<!-- 链接页面 -->
+			<a href="zhecai1.html" class="current">起源发展</a>
+			<a href="zhecai2.html">厨师推荐</a>
+			<!-- 链接页面 -->
+			<a href="zhecai3.html">互动小游戏</a>
+			<!-- 链接页面 -->
+		</div>
+
+		<!-- 左侧竖向导航栏 -->
+		<div class="sidebar">
+			<a href="#origin" class="sidebar-link">起源</a>
+			<a href="#development" class="sidebar-link">发展</a>
+		</div>
+
+		<div class="content">
+			<!-- 起源页面 -->
+			<div id="origin" class="page active">
+				<h1 style="text-align: center; margin-top: 50px; font-size: 32px;">浙菜的起源</h1>
+				<p style="font-size: 20px;">浙江菜，简称浙菜，是中国八大菜系之一 ， 其地山清水秀，物产丰富，故谚曰：“上有天堂，下有苏杭”。浙江省位于我国东海之滨，北部水道成网， 素有鱼米之乡之称。西南丘陵起伏，盛产山珍野味。东部沿海渔场密布，水产资源丰富， 有经济鱼类和贝壳水产品500余种，总产值居全国之首，物产丰富，佳肴自美，特色独具，有口皆碑 。</p>
+				<br>
+				<p style="font-size: 20px;">浙菜富有江南特色，历史悠久，源远流长，是中国著名的地方菜种。 浙菜起源于新石器时代的河姆渡文化，经越国先民的开拓积累，汉唐时期的成熟定型， 宋元时期的繁荣和明清时期的发展，浙江菜的基本风格已经形成。
+				</p>
+				<br>
+				<p style="font-size: 20px;">浙江濒临东海，气候温和，水陆交通方便， 其境内北半部地处我国“东南富庶”的长江三角洲平原，土地肥沃，河汉密布，盛产稻、麦、粟、豆、果蔬， 水产资源十分丰富，四季时鲜源源上市；西南部丘陵起伏，盛产山珍野味，农舍鸡鸭成群， 牛羊肥壮，无不为烹饪提供了殷实富足的原料。特产有：金华火腿，西湖莼菜，绍兴麻鸭、越鸡和酒，西湖龙井等。 丰富的烹饪资源、众多的名优特产，与卓越的烹饪技艺相结合，使浙江菜出类拔萃地独成体系。
+				</p>
+				<br>
+				<p style="font-size: 20px;">浙江点心中的团、糕、羹、面品种多，口味佳。 例如,嘉兴肉粽、宁波汤圆、绍兴臭豆腐、舟山虾爆鳝面、湖州馄饨等等。 名菜名点有：龙井虾仁、西湖莼菜、虾爆鳝背、西湖醋鱼、冰糖甲鱼、荷叶粉蒸肉、黄鱼海参羹、彩熘全黄鱼等等。
+				</p>
+				<p></p>
+			</div>
+
+			<!-- 发展页面 -->
+			<div id="development" class="page">
+				<h2 style="text-align: center; margin-top: 50px;font-size: 32px;">浙菜的发展历程</h2>
+				<div class="timeline">
+					<div class="line"></div>
+					<!-- 竖线 -->
+					<div class="circle" style="top: 40px;"></div>
+					<div class="tooltip" style="top: 35px; left: 38%;">春秋时期</div>
+					<div class="content2" style="top: 0px; left: 55%;">
+						<p>吴越春秋时期，春秋末年，越国定都“会稽”（今绍兴市），利用其优越的地理环境和资源， 在中原各国的经济、文化和技术的影响下，经过“十年生聚，十年教训”， 使钱塘江流域的农业、商业、手工业生产得到了迅速的发展，奠定了坚实的物质基础。
+						</p>
+					</div>
+
+					<div class="circle" style="top: 200px;"></div>
+					<div class="tooltip" style="top: 195px; left: 52%">南宋时期</div>
+					<div class="content2" style="top: 145px; left: 2%;">
+						<p>南宋建都杭州，浙菜在“南食”中占主要地位。被称为中华民族第二次迁移的宋室南渡， 对进一步推动以杭州为中心的南方菜肴的创新与发展起到了很大作用。
+						</p>
+					</div>
+
+					<div class="circle" style="top: 360px;"></div>
+					<div class="tooltip" style="top: 355px; left: 34%">新中国成立后</div>
+					<div class="content2" style="top: 320px; left: 55%;">
+						<p>浙江菜与全国各大菜系一样，得到了迅速的发展。 浙江省还成立了专门培养烹饪人才的各类学校和烹饪研究机构，广泛地烹饪文化交流， 进一步完善了饮食业的设备和条件。
+						</p>
+					</div>
+
+				</div>
+				<div class="text-with-outline" style="text-align: center; color: #A0522D; font-size: 40px; position: absolute; bottom: 40px; width: 95%;">
+					点击时间轴，一起探寻浙菜的历史吧！
+				</div>
+			</div>
+
+		</div>
+
+		<!-- JavaScript -->
+		<script>
+			// 当文档内容加载完成后执行
+			document.addEventListener("DOMContentLoaded", function() {
+				// 获取所有具有 .sidebar-link 类的元素，这些元素是侧边栏的链接
+				const sidebarLinks = document.querySelectorAll('.sidebar-link');
+				// 获取所有具有 .page 类的元素，这些元素是要切换显示的页面
+				const pages = document.querySelectorAll('.page');
+
+				// 初始时显示第一个页面，给第一个页面添加 active 类
+				pages[0].classList.add('active');
+
+				// 遍历所有的侧边栏链接
+				sidebarLinks.forEach((link, index) => {
+					// 给每个链接添加点击事件监听器
+					link.addEventListener('click', function(event) {
+						event.preventDefault(); // 阻止默认的链接跳转行为
+
+						// 移除所有页面的 active 类，隐藏所有页面
+						pages.forEach(page => page.classList.remove('active'));
+
+						// 根据当前链接的索引，显示对应的页面，给对应页面添加 active 类
+						pages[index].classList.add('active');
+					});
+				});
+			});
+
+			document.addEventListener("DOMContentLoaded", function() {
+				// 当文档内容加载完成时执行的函数
+				const circles = document.querySelectorAll('.circle');
+				const tooltips = document.querySelectorAll('.tooltip');
+				const contents = document.querySelectorAll('.content2');
+
+				circles.forEach((circle, index) => {
+					// 遍历所有带有类名 .circle 的元素
+					circle.addEventListener('mouseover', function() {
+						// 当鼠标移入圆圈元素时执行的函数
+						contents[index].style.display = 'block'; // 显示对应的内容块
+					});
+					circle.addEventListener('mouseout', function() {
+						// 当鼠标移出圆圈元素时执行的函数
+						contents[index].style.display = 'none'; // 隐藏对应的内容块
+					});
+				});
+			});
+		</script>
+
+	</body>
+
+</html>

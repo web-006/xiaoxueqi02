@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>寻味之旅：探寻八大菜系</title>
+		<style>
+			body {
+				margin: 0;
+				padding: 0;
+				background-image: url('img/beijing.png');
+				background-size: cover;
+			}
+			
+			.navbar {
+				background-color: #8B4513;
+				overflow: hidden;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				position: fixed;
+				top: 0;
+				width: 100%;
+				z-index: 1000;
+			}
+			
+			.navbar a {
+				color: white;
+				text-align: center;
+				text-decoration: none;
+				padding: 14px 20px;
+				font-size: 17px;
+				opacity: 0.6;
+			}
+			
+			.navbar a.current {
+				opacity: 1;
+				font-weight: bold;
+			}
+			
+			.navbar a:hover {
+				background-color: #A0522D;
+			}
+			
+			.sidebar {
+				background-color: #D2B48C;
+				position: fixed;
+				left: 0;
+				top: 0;
+				width: 100px;
+				height: 100%;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+			}
+			
+			.sidebar a {
+				color: #fff;
+				text-decoration: none;
+				margin: 10px 0;
+				padding: 10px;
+				border-radius: 5px;
+				opacity: 0.6;
+				transition: opacity 0.3s ease;
+			}
+			
+			.sidebar a:hover {
+				opacity: 1;
+				background-color: #B8860B;
+			}
+			
+			.content {
+				margin-left: 100px;
+				padding: 20px;
+				text-align: left;
+				font-family: Arial, sans-serif;
+				font-size: 16px;
+			}
+			
+			.page {
+				display: none;
+				/* 初始隐藏各个页面 */
+			}
+			
+			.page.active {
+				display: block;
+				/* 显示当前活跃页面 */
+			}
+			
+			.timeline {
+				position: relative;
+				/* 确保timeline容器可以定位其内部元素 */
+			}
+			
+			.circle {
+				position: absolute;
+				/* 相对于timeline定位 */
+				width: 25px;
+				/* 圆圈的宽度 */
+				height: 25px;
+				/* 圆圈的高度 */
+				background-color: floralwhite;
+				/* 圆圈的背景颜色 */
+				border-radius: 50%;
+				/* 将正方形变成圆形 */
+				left: 50%;
+				/* 将圆圈的左侧边缘定位到时间线的中心 */
+				transform: translateX(-50%);
+				/* 在X轴上居中 */
+				border: 2px solid black;
+				/* 添加一个 2 像素宽度的灰色边框 */
+			}
+			
+			.tooltip {
+				position: absolute;
+				/* 相对于timeline定位 */
+				color: black;
+				/* 提示信息的文本颜色 */
+				padding: 5px 10px;
+				/* 提示信息的内边距 */
+				border-radius: 5px;
+				/* 提示信息的圆角 */
+				font-size: 25px;
+				/* 提示信息的字体大小 */
+			}
+			
+			.line {
+				position: absolute;
+				/* 相对于timeline定位 */
+				width: 5px;
+				/* 竖线的宽度 */
+				height: 600px;
+				/* 竖线的高度，与timeline容器高度相同 */
+				background-color: black;
+				/* 竖线的颜色 */
+				left: 50%;
+				/* 将竖线的左侧边缘定位到时间线的中心 */
+				transform: translateX(-50%);
+				/* 在X轴上居中 */
+			}
+			
+			.content2 {
+				position: absolute;
+				background-color: #f0f0f0;
+				border: 1px solid #ccc;
+				padding: 2px;
+				border-radius: 5px;
+				max-width: 520px;
+				z-index: 1;
+				font-size: 20px;
+				display: none;
+				/* 初始隐藏 */
+				pointer-events: none;
+				/* 防止tooltip影响鼠标事件 */
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<!-- 主导航栏 -->
+		<div class="navbar">
+			<a href="map.html">返回</a>
+			<!-- 链接页面 -->
+			<a href="yuecai1.html" class="current">起源发展</a>
+			<a href="yuecai2.html">厨师推荐</a>
+			<!-- 链接页面 -->
+			<a href="yuecai3.html">互动小游戏</a>
+			<!-- 链接页面 -->
+		</div>
+
+		<!-- 左侧竖向导航栏 -->
+		<div class="sidebar">
+			<a href="#origin" class="sidebar-link">起源</a>
+			<a href="#development" class="sidebar-link">发展</a>
+		</div>
+
+		<div class="content">
+			<!-- 起源页面 -->
+			<div id="origin" class="page active">
+				<h1 style="text-align: center; margin-top: 50px; font-size: 32px;">粤菜的起源</h1>
+				<p style="font-size: 20px;">粤菜即广东菜，是中国八大菜系之一。 粤菜包括广府菜（即广州府菜）、潮州菜（又称汕尾菜、潮汕菜）、东江菜（又称客家菜）、粤西菜。 主打粤菜的澳门、顺德和潮州三市是联合国评定的“世界美食之都”。
+				</p>
+				<br>
+				<p style="font-size: 20px;">粤菜中的广府菜集顺德、南海、番禺、东莞、香山、四邑、宝安等地方风味的特色， 兼京、苏、淮、杭等外省菜以及西菜之所长，融为一体，自成一家。 粤菜取百家之长，用料精巧，善于在模仿中创新，依食客喜好而烹制。烹调技艺多样善变。 在烹调上以炒、爆为主，兼有烩、煎、烤，讲究清而不淡，鲜而不俗，嫩而不生，油而不腻， 有“五滋”(香、松、软、肥、浓)、“六味”(酸、甜、苦、辣、咸、鲜)之说。时令性强，夏秋尚清淡，冬春求浓郁。
+				</p>
+				<br>
+				<p style="font-size: 20px;">广东物产特别丰富，唾手可得，烹而食之，由此养成的喜好鲜活、生猛的饮食习惯。 随着历史变迁和朝代更替，中原移民不断南迁，带来了“烩不厌细，食不厌精”的中原饮食风格。 漫长的岁月，使广东既继承了中原饮食文化的传统，又博采外来及各方面的烹饪精华，再根据本地的口味、嗜好、习惯， 不断吸收、积累、改良、创新，从而形成了菜式繁多、烹调考究、质优味美的饮食特色。 近百年来已成为国内最具代表性和最有世界影响的饮食文化之一。
+				</p>
+				<br>
+				<p style="font-size: 20px;">粤菜在国外是中国的代表菜系。粤菜做法比较复杂，精细。 粤菜是一种文化，是一种气氛，是一种渲染，是一种和谐，是一种民俗，是一种色彩，也是一种健康标准的体现。
+				</p>
+				<p></p>
+			</div>
+
+			<!-- 发展页面 -->
+			<div id="development" class="page">
+				<h2 style="text-align: center; margin-top: 50px;font-size: 32px;">粤菜的发展历程</h2>
+				<div class="timeline">
+					<div class="line"></div>
+					<!-- 竖线 -->
+					<div class="circle" style="top: 40px;"></div>
+					<div class="tooltip" style="top: 35px; left: 37%;">宋代时期</div>
+					<div class="content2" style="top: 0px; left: 55%;">
+						<p>宋代时期，中原移民大批南下珠三角。南宋以后，粤菜的技艺和特点日趋成熟。 这同宋朝南迁，众多御厨和官府厨师云集于粤，特别集中于广州有关。
+						</p>
+					</div>
+
+					<div class="circle" style="top: 200px;"></div>
+					<div class="tooltip" style="top: 195px; left: 52%">宋、元之后</div>
+					<div class="content2" style="top: 145px; left: 2%;">
+						<p>广州成为内外贸易集中的口岸和港口城市，商业日益兴旺， 带动了饮食服务作为一个商业行业发展起来，为粤式饮食 特别是粤菜的成长提供了一个非常重要的条件和场所。
+						</p>
+					</div>
+
+					<div class="circle" style="top: 360px;"></div>
+					<div class="tooltip" style="top: 355px; left: 37%">明清两代</div>
+					<div class="content2" style="top: 320px; left: 55%;">
+						<p>这时的广州已经成为一座商业大城市，粤菜、粤点和粤式饮食真正成为了一个体系。 闹市通衡遍布茶楼、酒店、餐馆和小食店，各个食肆争奇斗艳，食品之丰，款式之多，世人称绝， 渐渐有“食在广州”之说。
+						</p>
+					</div>
+
+				</div>
+				<div class="text-with-outline" style="text-align: center; color: #A0522D; font-size: 40px; position: absolute; bottom: 40px; width: 95%;">
+					点击时间轴，一起探寻粤菜的历史吧！
+				</div>
+			</div>
+
+		</div>
+
+		<!-- JavaScript -->
+		<script>
+			// 当文档内容加载完成后执行
+			document.addEventListener("DOMContentLoaded", function() {
+				// 获取所有具有 .sidebar-link 类的元素，这些元素是侧边栏的链接
+				const sidebarLinks = document.querySelectorAll('.sidebar-link');
+				// 获取所有具有 .page 类的元素，这些元素是要切换显示的页面
+				const pages = document.querySelectorAll('.page');
+
+				// 初始时显示第一个页面，给第一个页面添加 active 类
+				pages[0].classList.add('active');
+
+				// 遍历所有的侧边栏链接
+				sidebarLinks.forEach((link, index) => {
+					// 给每个链接添加点击事件监听器
+					link.addEventListener('click', function(event) {
+						event.preventDefault(); // 阻止默认的链接跳转行为
+
+						// 移除所有页面的 active 类，隐藏所有页面
+						pages.forEach(page => page.classList.remove('active'));
+
+						// 根据当前链接的索引，显示对应的页面，给对应页面添加 active 类
+						pages[index].classList.add('active');
+					});
+				});
+			});
+
+			document.addEventListener("DOMContentLoaded", function() {
+				// 当文档内容加载完成时执行的函数
+				const circles = document.querySelectorAll('.circle');
+				const tooltips = document.querySelectorAll('.tooltip');
+				const contents = document.querySelectorAll('.content2');
+
+				circles.forEach((circle, index) => {
+					// 遍历所有带有类名 .circle 的元素
+					circle.addEventListener('mouseover', function() {
+						// 当鼠标移入圆圈元素时执行的函数
+						contents[index].style.display = 'block'; // 显示对应的内容块
+					});
+					circle.addEventListener('mouseout', function() {
+						// 当鼠标移出圆圈元素时执行的函数
+						contents[index].style.display = 'none'; // 隐藏对应的内容块
+					});
+				});
+			});
+		</script>
+
+	</body>
+
+</html>

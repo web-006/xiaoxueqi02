@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>寻味之旅：探寻八大菜系</title>
+		<style>
+			body {
+				margin: 0;
+				padding: 0;
+				background-image: url('img/beijing.png');
+				background-size: cover;
+			}
+			
+			.navbar {
+				background-color: #8B4513;
+				overflow: hidden;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				position: fixed;
+				top: 0;
+				width: 100%;
+				z-index: 1000;
+			}
+			
+			.navbar a {
+				color: white;
+				text-align: center;
+				text-decoration: none;
+				padding: 14px 20px;
+				font-size: 17px;
+				opacity: 0.6;
+			}
+			
+			.navbar a.current {
+				opacity: 1;
+				font-weight: bold;
+			}
+			
+			.navbar a:hover {
+				background-color: #A0522D;
+			}
+			
+			.sidebar {
+				background-color: #D2B48C;
+				position: fixed;
+				left: 0;
+				top: 0;
+				width: 100px;
+				height: 100%;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+			}
+			
+			.sidebar a {
+				color: #fff;
+				text-decoration: none;
+				margin: 10px 0;
+				padding: 10px;
+				border-radius: 5px;
+				opacity: 0.6;
+				transition: opacity 0.3s ease;
+			}
+			
+			.sidebar a:hover {
+				opacity: 1;
+				background-color: #B8860B;
+			}
+			
+			.content {
+				margin-left: 100px;
+				padding: 20px;
+				text-align: left;
+				font-family: Arial, sans-serif;
+				font-size: 16px;
+			}
+			
+			.page {
+				display: none;
+				/* 初始隐藏各个页面 */
+			}
+			
+			.page.active {
+				display: block;
+				/* 显示当前活跃页面 */
+			}
+			
+			.timeline {
+				position: relative;
+				/* 确保timeline容器可以定位其内部元素 */
+			}
+			
+			.circle {
+				position: absolute;
+				/* 相对于timeline定位 */
+				width: 25px;
+				/* 圆圈的宽度 */
+				height: 25px;
+				/* 圆圈的高度 */
+				background-color: floralwhite;
+				/* 圆圈的背景颜色 */
+				border-radius: 50%;
+				/* 将正方形变成圆形 */
+				left: 50%;
+				/* 将圆圈的左侧边缘定位到时间线的中心 */
+				transform: translateX(-50%);
+				/* 在X轴上居中 */
+				border: 2px solid black;
+				/* 添加一个 2 像素宽度的灰色边框 */
+			}
+			
+			.tooltip {
+				position: absolute;
+				/* 相对于timeline定位 */
+				color: black;
+				/* 提示信息的文本颜色 */
+				padding: 5px 10px;
+				/* 提示信息的内边距 */
+				border-radius: 5px;
+				/* 提示信息的圆角 */
+				font-size: 25px;
+				/* 提示信息的字体大小 */
+			}
+			
+			.line {
+				position: absolute;
+				/* 相对于timeline定位 */
+				width: 5px;
+				/* 竖线的宽度 */
+				height: 600px;
+				/* 竖线的高度，与timeline容器高度相同 */
+				background-color: black;
+				/* 竖线的颜色 */
+				left: 50%;
+				/* 将竖线的左侧边缘定位到时间线的中心 */
+				transform: translateX(-50%);
+				/* 在X轴上居中 */
+			}
+			
+			.content2 {
+				position: absolute;
+				background-color: #f0f0f0;
+				border: 1px solid #ccc;
+				padding: 2px;
+				border-radius: 5px;
+				max-width: 520px;
+				z-index: 1;
+				font-size: 20px;
+				display: none;
+				/* 初始隐藏 */
+				pointer-events: none;
+				/* 防止tooltip影响鼠标事件 */
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<!-- 主导航栏 -->
+		<div class="navbar">
+			<a href="map.html">返回</a>
+			<!-- 链接页面 -->
+			<a href="sucai1.html" class="current">起源发展</a>
+			<a href="sucai2.html">厨师推荐</a>
+			<!-- 链接页面 -->
+			<a href="sucai3.html">互动小游戏</a>
+			<!-- 链接页面 -->
+		</div>
+
+		<!-- 左侧竖向导航栏 -->
+		<div class="sidebar">
+			<a href="#origin" class="sidebar-link">起源</a>
+			<a href="#development" class="sidebar-link">发展</a>
+		</div>
+
+		<div class="content">
+			<!-- 起源页面 -->
+			<div id="origin" class="page active">
+				<h1 style="text-align: center; margin-top: 50px; font-size: 32px;">苏菜的起源</h1>
+				<p style="font-size: 20px;">江苏菜（简称苏菜）。起始于南北朝时期，唐宋时，经济发展，推动饮食业的繁荣， 苏菜成为“南食”两大台柱之一。明清时期，苏菜南北沿运河、东西沿长江的发展更为迅速。 沿海的地理优势扩大了苏菜在海内外的影响。
+				</p>
+				<br>
+				<p style="font-size: 20px;">苏菜由金陵菜、淮扬菜、苏锡菜、徐海菜组成。 其味清鲜，咸中稍甜，习尚五辛，注重本味，在国内外享有盛誉。 金陵菜口味和醇，玲珑细巧；徐州菜色调浓重，习尚五辛； 扬州菜清淡适口，刀工精细；苏州菜口味趋甜，清雅多姿。
+				</p>
+				<br>
+				<p style="font-size: 20px;">苏菜擅长炖、焖、蒸、炒，重视调汤，保持菜的原汁， 风味清鲜，浓而不腻，淡而不薄，酥松脱骨而不失其形，滑嫩爽脆而不失其味。
+				</p>
+				<br>
+				<p style="font-size: 20px;">江苏菜系选料讲究，刀工精细，口味偏甜，造型讲究，特色鲜明。由于江浙地区气候潮湿，又靠近沿海， 所以往往会在菜中增加糖分，来去除湿气。江苏菜很少放辣椒，因为吃辣椒虽然能够去除湿气， 但是容易上火。因此，江浙菜系是以偏甜为主。苏菜风格源于宋代开封，宋室南迁带入并逐渐占据主要地位。 开封饮食仍然与江苏有诸多相同之处，如小笼包、桂鱼等等。
+				</p>
+				<br>
+				<p style="font-size: 20px;">江苏菜的特点是：用料广泛，以江河湖海水鲜为主； 刀工精细，烹调方法多样，擅长炖焖煨焐；追求本味，清鲜平和；菜品风格雅丽，形质均美。
+				</p>
+			</div>
+
+			<!-- 发展页面 -->
+			<div id="development" class="page">
+				<h2 style="text-align: center; margin-top: 50px;font-size: 32px;">苏菜的发展历程</h2>
+				<div class="timeline">
+					<div class="line"></div>
+					<!-- 竖线 -->
+					<div class="circle" style="top: 40px;"></div>
+					<div class="tooltip" style="top: 35px; left: 37%;">唐代时期</div>
+					<div class="content2" style="top: 0px; left: 55%;">
+						<p>起始于南北朝，唐代时，经济发展，推动饮食业的繁荣，苏菜成为“南食”两大台柱之一。</p>
+					</div>
+
+					<div class="circle" style="top: 200px;"></div>
+					<div class="tooltip" style="top: 195px; left: 52%">宋代时期</div>
+					<div class="content2" style="top: 145px; left: 2%;">
+						<p>宋代以来，苏菜的口味有较大的变化。原来南人菜咸而北方菜甜， 江南进贡到长安、洛阳的鱼蟹要加糖加蜜。宋室南渡杭城， 中原大批士大夫南下，带来了中原风味的影响。
+						</p>
+					</div>
+
+					<div class="circle" style="top: 360px;"></div>
+					<div class="tooltip" style="top: 355px; left: 37%">明清时期</div>
+					<div class="content2" style="top: 320px; left: 55%;">
+						<p>明清时期，苏菜南北沿运河、东西沿长江的发展更为迅速。 沿海的地理优势扩大了苏菜在海内外的影响。
+						</p>
+					</div>
+
+				</div>
+				<div class="text-with-outline" style="text-align: center; color: #A0522D; font-size: 40px; position: absolute; bottom: 40px; width: 95%;">
+					点击时间轴，一起探寻苏菜的历史吧！
+				</div>
+			</div>
+
+		</div>
+
+		<!-- JavaScript -->
+		<script>
+			// 当文档内容加载完成后执行
+			document.addEventListener("DOMContentLoaded", function() {
+				// 获取所有具有 .sidebar-link 类的元素，这些元素是侧边栏的链接
+				const sidebarLinks = document.querySelectorAll('.sidebar-link');
+				// 获取所有具有 .page 类的元素，这些元素是要切换显示的页面
+				const pages = document.querySelectorAll('.page');
+
+				// 初始时显示第一个页面，给第一个页面添加 active 类
+				pages[0].classList.add('active');
+
+				// 遍历所有的侧边栏链接
+				sidebarLinks.forEach((link, index) => {
+					// 给每个链接添加点击事件监听器
+					link.addEventListener('click', function(event) {
+						event.preventDefault(); // 阻止默认的链接跳转行为
+
+						// 移除所有页面的 active 类，隐藏所有页面
+						pages.forEach(page => page.classList.remove('active'));
+
+						// 根据当前链接的索引，显示对应的页面，给对应页面添加 active 类
+						pages[index].classList.add('active');
+					});
+				});
+			});
+
+			document.addEventListener("DOMContentLoaded", function() {
+				// 当文档内容加载完成时执行的函数
+				const circles = document.querySelectorAll('.circle');
+				const tooltips = document.querySelectorAll('.tooltip');
+				const contents = document.querySelectorAll('.content2');
+
+				circles.forEach((circle, index) => {
+					// 遍历所有带有类名 .circle 的元素
+					circle.addEventListener('mouseover', function() {
+						// 当鼠标移入圆圈元素时执行的函数
+						contents[index].style.display = 'block'; // 显示对应的内容块
+					});
+					circle.addEventListener('mouseout', function() {
+						// 当鼠标移出圆圈元素时执行的函数
+						contents[index].style.display = 'none'; // 隐藏对应的内容块
+					});
+				});
+			});
+		</script>
+
+	</body>
+
+</html>

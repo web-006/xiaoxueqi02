@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>寻味之旅：探寻八大菜系</title>
+		<style>
+			body {
+				font-family: Arial, sans-serif;
+				margin: 0;
+				padding: 0;
+				background-image: url('img/beijing.png');
+				background-size: cover;
+			}
+
+			.navbar {
+				background-color: #8B4513;
+				overflow: hidden;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				position: fixed;
+				top: 0;
+				width: 100%;
+				z-index: 1000;
+			}
+
+			.navbar a {
+				color: white;
+				text-align: center;
+				text-decoration: none;
+				padding: 14px 20px;
+				font-size: 17px;
+				opacity: 0.6;
+			}
+
+			.navbar a.current {
+				opacity: 1;
+				font-weight: bold;
+			}
+
+			.navbar a:hover {
+				background-color: #A0522D;
+			}
+
+			.sidebar {
+				background-color: #D2B48C;
+				position: fixed;
+				left: 0;
+				top: 0;
+				width: 100px;
+				height: 100%;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+			}
+
+			.sidebar a {
+				color: #fff;
+				text-decoration: none;
+				margin: 10px 0;
+				padding: 10px;
+				border-radius: 5px;
+				opacity: 0.6;
+				transition: opacity 0.3s ease;
+			}
+
+			.sidebar a:hover {
+				opacity: 1;
+				background-color: #B8860B;
+			}
+
+			.content {
+				margin-left: 100px;
+				padding: 20px;
+				text-align: left;
+				font-family: Arial, sans-serif;
+				font-size: 16px;
+			}
+
+			.page {
+				display: none;
+				/* 初始隐藏各个页面 */
+			}
+
+			.page.active {
+				display: block;
+				/* 显示当前活跃页面 */
+			}
+
+			.timeline {
+				position: relative;
+				/* 确保timeline容器可以定位其内部元素 */
+			}
+
+			body {
+				font-family: Arial, sans-serif;
+				margin: 0;
+				padding: 0;
+				background-color: #f0f0f0;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				height: 100vh;
+			}
+
+			.game-container {
+				display: grid;
+				grid-template-columns: repeat(4, 100px);
+				grid-gap: 10px;
+			}
+
+			.card {
+				width: 100px;
+				height: 100px;
+				background-color: #8B4513;
+				border-radius: 5px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				font-size: 0;
+				cursor: pointer;
+				transition: transform 0.3s ease;
+				position: relative;
+			}
+
+			.card img {
+				display: none;
+				max-width: 100%;
+				max-height: 100%;
+			}
+
+			.card.flipped img {
+				display: block;
+			}
+
+			.matched {
+				visibility: hidden;
+				pointer-events: none;
+				animation: vanish 0.5s ease forwards;
+			}
+
+			@keyframes vanish {
+				to {
+					opacity: 0;
+					transform: scale(0);
+				}
+			}
+
+
+			.text1 {
+				position: absolute;
+				top: 50%;
+				left: 20%;
+				transform: translate(-50%, -50%);
+				writing-mode: vertical-rl;
+				/* 设置文字竖排显示，从右到左 */
+				text-orientation: upright;
+				/* 设置文字方向为直立 */
+				font-size: 65px;
+				color: #8B4513;
+				text-shadow: -1px -1px 0 #000, 1px -1px 0 #000;
+			}
+
+			.text2 {
+				position: absolute;
+				top: 50%;
+				right: 15%;
+				transform: translate(-50%, -50%);
+				writing-mode: vertical-rl;
+				/* 设置文字竖排显示，从右到左 */
+				text-orientation: upright;
+				/* 设置文字方向为直立 */
+				font-size: 65px;
+				color: #8B4513;
+				text-shadow: -1px -1px 0 #000, 1px -1px 0 #000;
+			}
+
+			.text3 {
+				position: absolute;
+				margin-top: 560px;
+				font-size: 28px;
+				text-align: center;
+				color: #8B4513;
+				text-shadow: -1px -1px 0 #000;
+				line-height: 0.4; /* 调整行高，可以根据需要调整具体数值 */
+			}
+		</style>
+	</head>
+	<body>
+
+		<!-- 主导航栏 -->
+		<div class="navbar">
+			<a href="section1.html">返回</a> <!-- 链接页面 -->
+			<a href="section2.html">起源发展</a>
+			<a href="section3.html">详细</a> <!-- 链接页面 -->
+			<a href="#" class="current">互动小游戏</a> <!-- 链接页面 -->
+		</div>
+
+		<div class="text1">
+			菜品翻翻看
+		</div>
+		<div class="text2">
+			开始游戏吧
+		</div>
+		<div class="text3">
+			<p>玩家需要逐对翻开图案，并记住它们的位置。</p>
+			如果两个翻开的图案相同，则它们保持翻开状态；否则，它们会再次翻转回去。
+		</div>
+
+
+		<div class="game-container" id="game-container">
+
+		</div>
+
+		<script>
+		    const images = [
+		        'img/01.jpg', 'img/01.jpg',
+		        'img/02.jpg', 'img/02.jpg',
+		        'img/03.jpg', 'img/03.jpg',
+		        'img/04.jpg', 'img/04.jpg',
+		        'img/05.jpg', 'img/05.jpg',
+		        'img/06.jpg', 'img/06.jpg',
+		        'img/07.jpg', 'img/07.jpg',
+		        'img/08.jpg', 'img/08.jpg'
+		    ];
+		
+		    const gameContainer = document.getElementById('game-container');
+		    const shuffledImages = shuffle(images);
+		
+		    // Create card elements dynamically with randomized positions
+		    shuffledImages.forEach(image => {
+		        const card = document.createElement('div');
+		        card.classList.add('card');
+		        card.dataset.framework = image.slice(4, 6); // Extract the number from filename
+		        card.innerHTML = `<img src="${image}" alt="Card ${image.slice(4, 6)}">`;
+		        gameContainer.appendChild(card);
+		    });
+		
+		    const cards = document.querySelectorAll('.card');
+		    let hasFlippedCard = false;
+		    let lockBoard = false;
+		    let firstCard, secondCard;
+		
+		    function flipCard() {
+		        if (lockBoard) return;
+		        if (this === firstCard) return;
+		        if (this.classList.contains('matched')) return; // Prevent clicking on matched cards
+		
+		        this.classList.add('flipped');
+		
+		        if (!hasFlippedCard) {
+		            hasFlippedCard = true;
+		            firstCard = this;
+		            return;
+		        }
+		
+		        secondCard = this;
+		        checkForMatch();
+		    }
+		
+		    function checkForMatch() {
+		        let isMatch = firstCard.dataset.framework === secondCard.dataset.framework;
+		
+		        isMatch ? disableCards() : unflipCards();
+		    }
+		
+		    function disableCards() {
+		        lockBoard = true;
+		
+		        setTimeout(() => {
+		            firstCard.classList.add('matched');
+		            secondCard.classList.add('matched');
+		            resetBoard();
+		        }, 500); // Adjusted to 0.5 seconds
+		    }
+		
+		    function unflipCards() {
+		        lockBoard = true;
+		
+		        setTimeout(() => {
+		            firstCard.classList.remove('flipped');
+		            secondCard.classList.remove('flipped');
+		            resetBoard();
+		        }, 1000); // Keep unflip delay at 1 second
+		    }
+		
+		    function resetBoard() {
+		        [hasFlippedCard, lockBoard] = [false, false];
+		        [firstCard, secondCard] = [null, null];
+		    }
+		
+		    function shuffle(array) {
+		        let currentIndex = array.length;
+		        let temporaryValue, randomIndex;
+		
+		        while (currentIndex !== 0) {
+		            randomIndex = Math.floor(Math.random() * currentIndex);
+		            currentIndex -= 1;
+		
+		            temporaryValue = array[currentIndex];
+		            array[currentIndex] = array[randomIndex];
+		            array[randomIndex] = temporaryValue;
+		        }
+		
+		        return array;
+		    }
+		
+		    cards.forEach(card => card.addEventListener('click', flipCard));
+		</script>
+
+
+	</body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>寻味之旅：探寻八大菜系</title>
+		<style>
+			body {
+				font-family: Arial, sans-serif;
+				margin: 0;
+				padding: 0;
+				background-image: url('img/beijing.png');
+				background-size: cover;
+			}
+			
+			.navbar {
+				background-color: #8B4513;
+				overflow: hidden;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				position: fixed;
+				top: 0;
+				width: 100%;
+				z-index: 1000;
+			}
+			
+			.navbar a {
+				color: white;
+				text-align: center;
+				text-decoration: none;
+				padding: 14px 20px;
+				font-size: 17px;
+				opacity: 0.6;
+			}
+			
+			.navbar a.current {
+				opacity: 1;
+				font-weight: bold;
+			}
+			
+			.navbar a:hover {
+				background-color: #A0522D;
+			}
+			
+			.sidebar {
+				background-color: #D2B48C;
+				position: fixed;
+				left: 0;
+				top: 0;
+				width: 100px;
+				height: 100%;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+			}
+			
+			.sidebar a {
+				color: #fff;
+				text-decoration: none;
+				margin: 10px 0;
+				padding: 10px;
+				border-radius: 5px;
+				opacity: 0.6;
+				transition: opacity 0.3s ease;
+			}
+			
+			.sidebar a:hover {
+				opacity: 1;
+				background-color: #B8860B;
+			}
+			
+			.content {
+				margin-left: 100px;
+				padding: 20px;
+				text-align: left;
+				font-family: Arial, sans-serif;
+				font-size: 16px;
+			}
+			
+			.page {
+				display: none;
+				/* 初始隐藏各个页面 */
+			}
+			
+			.page.active {
+				display: block;
+				/* 显示当前活跃页面 */
+			}
+			
+			.timeline {
+				position: relative;
+				/* 确保timeline容器可以定位其内部元素 */
+			}
+			
+			.image-container {
+				display: flex;
+				justify-content: center;
+				/* 图片水平居中 */
+				align-items: flex-start;
+				/* 垂直对齐方式，顶部对齐 */
+				margin-top: 100px;
+				/* 调整图片与导航栏之间的间距 */
+			}
+			
+			.image-with-text {
+				max-width: 40%;
+				/* 设置容器的最大宽度 */
+				margin: 0 auto;
+				/* 自动左右居中 */
+			}
+			
+			.image-container img {
+				max-width: 80%;
+				/* 图片最大宽度为容器的100% */
+				max-height: 300px; /* 图片高度最大为300像素 */
+				border-radius: 8px;
+				/* 圆角边框 */
+				box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+				/* 添加阴影效果 */
+			}
+			
+			.image-with-text p {
+				font-size: 20px;
+				/* 设置段落文字大小 */
+				margin-top: 15px;
+				/* 上边距 */
+				color: #555;
+				/* 段落文字颜色 */
+				text-align: left;
+				/* 左对齐 */
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<!-- 主导航栏 -->
+		<div class="navbar">
+			<a href="map.html">返回</a>
+			<!-- 链接页面 -->
+			<a href="lucai1.html">起源发展</a>
+			<a href="lucai2.html" class="current">厨师推荐</a>
+			<!-- 链接页面 -->
+			<a href="lucai3.html">互动小游戏</a>
+			<!-- 链接页面 -->
+		</div>
+
+		<div class="image-container">
+			<div class="image-with-text">
+				<img src="img/lu1.jpg" alt="糖醋鲤鱼">
+				<p>糖醋鲤鱼”是山东济南的传统名菜。济南北临黄河，黄河鲤鱼不仅肥嫩鲜美，而且金鳞赤尾，形态可爱，是宴会上的佳肴。《济南府志》上早有“黄河之鲤，南阳之蟹，且入食谱”的记载。</p>
+				<p>食材：活鲤鱼1条,葱、姜、蒜各1克,笋尖5克,面粉、水淀粉各40克、荸荠1个,素油500毫升(实耗50毫升),白糖40克,干黑木耳、酱油、精盐、黄酒、鲜汤、食醋各适量。</p>
+				<p>做法：(1)将干黑木耳用开水涨发；葱、姜、蒜均切成细丝；荸荠、笋尖切成薄片</p>
+				<p>(2)将鲤鱼剖杀,洗净后抹干,再将鱼两面用刀划成深约1厘米的刀口,用精盐抹在刀口处,稍作腌渍,把面粉向各刀口撒匀,然后再把整条鱼的两面都粘满面粉。</p>
+				<p>(3)油锅烧热,将鱼下锅,炸透呈金黄色取出沥油。</p>
+				<p>(4)锅中放少量素油,放入葱丝、姜丝、蒜丝,加入食醋、黑木耳及荸荠片、笋片、鲜汤、黄酒、白糖、酱油、水淀粉等,烧成浓汁,快速浇在炸好的鱼上即可。</p>
+			</div>
+			<div class="image-with-text">
+				<img src="img/lu2.jpg" alt="九转大肠">
+				<p>九转大肠，是中国山东省济南市的传统名菜，属于山东菜系。九转大肠是以猪大肠为主料，加以葱、姜、芫荽等配料，通过煮、烧等烹饪技法制作而成，成菜后有辣觉，并且酸、甜、香、咸四味俱全，色泽红润，质地软嫩。 入选“中国菜”中的“山东十大经典名菜”名单。</p>
+				<p>食材：肥肠 1000克、洗肠用白醋 40克 、洗肠用盐 30克、姜 1块、花椒 15粒桂皮 1块 、 八角 4个、香叶 1片、冰糖 20-25克、白醋 15-20克、陈醋 5克 、生抽 15克 、耗油 5克、胡椒粉 2-3克 、干淀粉 适量</p>
+				<p>做法：(1)将猪大肠顶刀切成4厘米长的段。葱、姜、芫荽切成末。</p>
+				<p>(2)将切好后的猪大肠在沸水中煮透捞出，沥净水分。</p>
+				<P>(3)炒勺放在小火上，加白油、白糖炒至鸡血红色时，放入大肠。</P>
+				<p>(4)炒至上色后拨至勺边，加入葱、姜末炸出香味，烹醋，加入酱油、白糖、清汤、盐、料酒，搅拌均匀，用小火煨制。</p>
+				<p>(5)汤汁浓稠将尽时放入白胡椒面、肉桂面、砂仁面、花椒油，颠翻均匀，撒上芫荽末。</p>
+
+			</div>
+
+	</body>
+
+</html>

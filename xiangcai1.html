@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>寻味之旅：探寻八大菜系</title>
+		<style>
+			body {
+				margin: 0;
+				padding: 0;
+				background-image: url('img/beijing.png');
+				background-size: cover;
+			}
+			
+			.navbar {
+				background-color: #8B4513;
+				overflow: hidden;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				position: fixed;
+				top: 0;
+				width: 100%;
+				z-index: 1000;
+			}
+			
+			.navbar a {
+				color: white;
+				text-align: center;
+				text-decoration: none;
+				padding: 14px 20px;
+				font-size: 17px;
+				opacity: 0.6;
+			}
+			
+			.navbar a.current {
+				opacity: 1;
+				font-weight: bold;
+			}
+			
+			.navbar a:hover {
+				background-color: #A0522D;
+			}
+			
+			.sidebar {
+				background-color: #D2B48C;
+				position: fixed;
+				left: 0;
+				top: 0;
+				width: 100px;
+				height: 100%;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+			}
+			
+			.sidebar a {
+				color: #fff;
+				text-decoration: none;
+				margin: 10px 0;
+				padding: 10px;
+				border-radius: 5px;
+				opacity: 0.6;
+				transition: opacity 0.3s ease;
+			}
+			
+			.sidebar a:hover {
+				opacity: 1;
+				background-color: #B8860B;
+			}
+			
+			.content {
+				margin-left: 100px;
+				padding: 20px;
+				text-align: left;
+				font-family: Arial, sans-serif;
+				font-size: 16px;
+			}
+			
+			.page {
+				display: none;
+				/* 初始隐藏各个页面 */
+			}
+			
+			.page.active {
+				display: block;
+				/* 显示当前活跃页面 */
+			}
+			
+			.timeline {
+				position: relative;
+				/* 确保timeline容器可以定位其内部元素 */
+			}
+			
+			.circle {
+				position: absolute;
+				/* 相对于timeline定位 */
+				width: 25px;
+				/* 圆圈的宽度 */
+				height: 25px;
+				/* 圆圈的高度 */
+				background-color: floralwhite;
+				/* 圆圈的背景颜色 */
+				border-radius: 50%;
+				/* 将正方形变成圆形 */
+				left: 50%;
+				/* 将圆圈的左侧边缘定位到时间线的中心 */
+				transform: translateX(-50%);
+				/* 在X轴上居中 */
+				border: 2px solid black;
+				/* 添加一个 2 像素宽度的灰色边框 */
+			}
+			
+			.tooltip {
+				position: absolute;
+				/* 相对于timeline定位 */
+				color: black;
+				/* 提示信息的文本颜色 */
+				padding: 5px 10px;
+				/* 提示信息的内边距 */
+				border-radius: 5px;
+				/* 提示信息的圆角 */
+				font-size: 25px;
+				/* 提示信息的字体大小 */
+			}
+			
+			.line {
+				position: absolute;
+				/* 相对于timeline定位 */
+				width: 5px;
+				/* 竖线的宽度 */
+				height: 600px;
+				/* 竖线的高度，与timeline容器高度相同 */
+				background-color: black;
+				/* 竖线的颜色 */
+				left: 50%;
+				/* 将竖线的左侧边缘定位到时间线的中心 */
+				transform: translateX(-50%);
+				/* 在X轴上居中 */
+			}
+			
+			.content2 {
+				position: absolute;
+				background-color: #f0f0f0;
+				border: 1px solid #ccc;
+				padding: 2px;
+				border-radius: 5px;
+				max-width: 520px;
+				z-index: 1;
+				font-size: 20px;
+				display: none;
+				/* 初始隐藏 */
+				pointer-events: none;
+				/* 防止tooltip影响鼠标事件 */
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<!-- 主导航栏 -->
+		<div class="navbar">
+			<a href="map.html">返回</a>
+			<!-- 链接页面 -->
+			<a href="xiangcai1.html" class="current">起源发展</a>
+			<a href="xiangcai2.html">厨师推荐</a>
+			<!-- 链接页面 -->
+			<a href="xiangcai3.html">互动小游戏</a>
+			<!-- 链接页面 -->
+		</div>
+
+		<!-- 左侧竖向导航栏 -->
+		<div class="sidebar">
+			<a href="#origin" class="sidebar-link">起源</a>
+			<a href="#development" class="sidebar-link">发展</a>
+		</div>
+
+		<div class="content">
+			<!-- 起源页面 -->
+			<div id="origin" class="page active">
+				<h1 style="text-align: center; margin-top: 50px; font-size: 32px;">湘菜的起源</h1>
+				<p style="font-size: 20px;">湘菜，又叫湖南菜，是中国历史悠久的汉族八大菜系之一。 湘菜特别讲究调味，尤重酸辣、咸香、清香、浓鲜。 夏天炎热，其味重清淡、香鲜。冬天湿冷，味重热辣、浓鲜。
+				</p>
+				<br>
+				<p style="font-size: 20px;">湘菜调味，特色是“酸辣”，以辣为主，酸寓其中。 “酸”是酸泡菜之酸，比醋更为醇厚柔和。湖南大部分地区地势较低，气候温暖潮湿，古称“卑湿之地”。 而辣椒有提热、开胃、祛湿、祛风之效，故深为湖南人民所喜爱。 剁椒经过乳酸发酵，具有开胃、养胃的作用。
+				</p>
+				<br>
+				<p style="font-size: 20px;">湘菜制作精细，用料上比较广泛，口味多变，品种繁多； 色泽上油重色浓，讲求实惠；品味上注重香辣、香鲜、软嫩； 制法上以煨、炖、腊、蒸、炒诸法见称。
+				</p>
+				<br>
+				<p style="font-size: 20px;">官府湘菜代表菜品以组庵湘菜为代表，如组庵豆腐、组庵鱼翅等； 民间湘菜代表菜品有辣椒炒肉、剁椒鱼头、湘西外婆菜、吉首酸肉、牛肉粉，衡阳鱼粉，栖凤渡鱼粉， 东安鸡，金鱼戏莲、永州血鸭、九嶷山兔、宁远酿豆腐、腊味合蒸、姊妹团子 、宁乡口味蛇、岳阳姜辣蛇等。</p>
+				<p></p>
+			</div>
+
+			<!-- 发展页面 -->
+			<div id="development" class="page">
+				<h2 style="text-align: center; margin-top: 50px;font-size: 32px;">湘菜的发展历程</h2>
+				<div class="timeline">
+					<div class="line"></div>
+					<!-- 竖线 -->
+					<div class="circle" style="top: 40px;"></div>
+					<div class="tooltip" style="top: 35px; left: 35%;">春秋战国时期</div>
+					<div class="content2" style="top: 0px; left: 55%;">
+						<p>从湖南的新石器遗址中出土的大量精美的陶食器和酒器， 以及伴随这些陶器一起出土的谷物和动物骨骸的残存来测算， 证实潇湘先民早在八九千年前就脱离了茹毛饮血的原始状态，开始吃熟食了。
+						</p>
+					</div>
+
+					<div class="circle" style="top: 180px;"></div>
+					<div class="tooltip" style="top: 175px; left: 52%">西汉时期</div>
+					<div class="content2" style="top: 125px; left: 2%;">
+						<p>从出土的西汉遗策中可以看出，汉代湖南饮食生活中的烹调方法比战国时代已有进一步的发展， 发展到羹、炙、煎、熬、蒸、濯、脍、脯、腊、炮、醢、苴等多种。 烹调用的调料就有盐、酱、豉、曲、糖、蜜、韭、梅、桂皮、花椒、茱萸等。
+						</p>
+					</div>
+
+					<div class="circle" style="top: 320px;"></div>
+					<div class="tooltip" style="top: 315px; left: 36%">唐宋明清</div>
+					<div class="content2" style="top: 280px; left: 55%;">
+						<p>由于湖南物产丰富，素有“鱼米之乡”的美称，所以自唐、 宋以来，尤其在明、清之际湖南饮食文化的发展更趋完善， 逐步形成了全国八大菜系中一支具有鲜明特色的湘菜系。
+						</p>
+					</div>
+
+					<div class="circle" style="top: 450px;"></div>
+					<div class="tooltip" style="top: 445px; left: 52%">民国时期</div>
+					<div class="content2" style="top: 400px; left: 5%;">
+						<p>民国时期名人谭延闿及其家厨创立了湘菜的重要菜系－组庵湘菜。 组庵湘菜以“原材料选取精良、刀工处理精细、烹制技艺精湛、味道调和精准” 的美食理念赢得了人们的青睐，被称为“湘菜之源”，组庵湘菜是湘菜中的著名系列和重要流派。
+						</p>
+					</div>
+
+				</div>
+				<div class="text-with-outline" style="text-align: center; color: #A0522D; font-size: 40px; position: absolute; bottom: 40px; width: 95%;">
+					点击时间轴，一起探寻湘菜的历史吧！
+				</div>
+			</div>
+
+		</div>
+
+		<!-- JavaScript -->
+		<script>
+			// 当文档内容加载完成后执行
+			document.addEventListener("DOMContentLoaded", function() {
+				// 获取所有具有 .sidebar-link 类的元素，这些元素是侧边栏的链接
+				const sidebarLinks = document.querySelectorAll('.sidebar-link');
+				// 获取所有具有 .page 类的元素，这些元素是要切换显示的页面
+				const pages = document.querySelectorAll('.page');
+
+				// 初始时显示第一个页面，给第一个页面添加 active 类
+				pages[0].classList.add('active');
+
+				// 遍历所有的侧边栏链接
+				sidebarLinks.forEach((link, index) => {
+					// 给每个链接添加点击事件监听器
+					link.addEventListener('click', function(event) {
+						event.preventDefault(); // 阻止默认的链接跳转行为
+
+						// 移除所有页面的 active 类，隐藏所有页面
+						pages.forEach(page => page.classList.remove('active'));
+
+						// 根据当前链接的索引，显示对应的页面，给对应页面添加 active 类
+						pages[index].classList.add('active');
+					});
+				});
+			});
+
+			document.addEventListener("DOMContentLoaded", function() {
+				// 当文档内容加载完成时执行的函数
+				const circles = document.querySelectorAll('.circle');
+				const tooltips = document.querySelectorAll('.tooltip');
+				const contents = document.querySelectorAll('.content2');
+
+				circles.forEach((circle, index) => {
+					// 遍历所有带有类名 .circle 的元素
+					circle.addEventListener('mouseover', function() {
+						// 当鼠标移入圆圈元素时执行的函数
+						contents[index].style.display = 'block'; // 显示对应的内容块
+					});
+					circle.addEventListener('mouseout', function() {
+						// 当鼠标移出圆圈元素时执行的函数
+						contents[index].style.display = 'none'; // 隐藏对应的内容块
+					});
+				});
+			});
+		</script>
+
+	</body>
+
+</html>

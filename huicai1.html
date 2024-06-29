@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>寻味之旅：探寻八大菜系</title>
+		<style>
+			body {
+				margin: 0;
+				padding: 0;
+				background-image: url('img/beijing.png');
+				background-size: cover;
+			}
+			
+			.navbar {
+				background-color: #8B4513;
+				overflow: hidden;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				position: fixed;
+				top: 0;
+				width: 100%;
+				z-index: 1000;
+			}
+			
+			.navbar a {
+				color: white;
+				text-align: center;
+				text-decoration: none;
+				padding: 14px 20px;
+				font-size: 17px;
+				opacity: 0.6;
+			}
+			
+			.navbar a.current {
+				opacity: 1;
+				font-weight: bold;
+			}
+			
+			.navbar a:hover {
+				background-color: #A0522D;
+			}
+			
+			.sidebar {
+				background-color: #D2B48C;
+				position: fixed;
+				left: 0;
+				top: 0;
+				width: 100px;
+				height: 100%;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+			}
+			
+			.sidebar a {
+				color: #fff;
+				text-decoration: none;
+				margin: 10px 0;
+				padding: 10px;
+				border-radius: 5px;
+				opacity: 0.6;
+				transition: opacity 0.3s ease;
+			}
+			
+			.sidebar a:hover {
+				opacity: 1;
+				background-color: #B8860B;
+			}
+			
+			.content {
+				margin-left: 100px;
+				padding: 20px;
+				text-align: left;
+				font-family: Arial, sans-serif;
+				font-size: 16px;
+			}
+			
+			.page {
+				display: none;
+				/* 初始隐藏各个页面 */
+			}
+			
+			.page.active {
+				display: block;
+				/* 显示当前活跃页面 */
+			}
+			
+			.timeline {
+				position: relative;
+				/* 确保timeline容器可以定位其内部元素 */
+			}
+			
+			.circle {
+				position: absolute;
+				/* 相对于timeline定位 */
+				width: 25px;
+				/* 圆圈的宽度 */
+				height: 25px;
+				/* 圆圈的高度 */
+				background-color: floralwhite;
+				/* 圆圈的背景颜色 */
+				border-radius: 50%;
+				/* 将正方形变成圆形 */
+				left: 50%;
+				/* 将圆圈的左侧边缘定位到时间线的中心 */
+				transform: translateX(-50%);
+				/* 在X轴上居中 */
+				border: 2px solid black;
+				/* 添加一个 2 像素宽度的灰色边框 */
+			}
+			
+			.tooltip {
+				position: absolute;
+				/* 相对于timeline定位 */
+				color: black;
+				/* 提示信息的文本颜色 */
+				padding: 5px 10px;
+				/* 提示信息的内边距 */
+				border-radius: 5px;
+				/* 提示信息的圆角 */
+				font-size: 25px;
+				/* 提示信息的字体大小 */
+			}
+			
+			.line {
+				position: absolute;
+				/* 相对于timeline定位 */
+				width: 5px;
+				/* 竖线的宽度 */
+				height: 600px;
+				/* 竖线的高度，与timeline容器高度相同 */
+				background-color: black;
+				/* 竖线的颜色 */
+				left: 50%;
+				/* 将竖线的左侧边缘定位到时间线的中心 */
+				transform: translateX(-50%);
+				/* 在X轴上居中 */
+			}
+			
+			.content2 {
+				position: absolute;
+				background-color: #f0f0f0;
+				border: 1px solid #ccc;
+				padding: 2px;
+				border-radius: 5px;
+				max-width: 520px;
+				z-index: 1;
+				font-size: 20px;
+				display: none;
+				/* 初始隐藏 */
+				pointer-events: none;
+				/* 防止tooltip影响鼠标事件 */
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<!-- 主导航栏 -->
+		<div class="navbar">
+			<a href="map.html">返回</a>
+			<!-- 链接页面 -->
+			<a href="huicai1.html" class="current">起源发展</a>
+			<a href="section3.html">厨师推荐</a>
+			<!-- 链接页面 -->
+			<a href="section4.html">互动小游戏</a>
+			<!-- 链接页面 -->
+		</div>
+
+		<!-- 左侧竖向导航栏 -->
+		<div class="sidebar">
+			<a href="#origin" class="sidebar-link">起源</a>
+			<a href="#development" class="sidebar-link">发展</a>
+		</div>
+
+		<div class="content">
+			<!-- 起源页面 -->
+			<div id="origin" class="page active">
+				<h1 style="text-align: center; margin-top: 50px; font-size: 32px;">徽菜的起源</h1>
+				<p style="font-size: 20px;">指徽州菜，简称徽菜，是中国八大菜系之一。徽菜起源于南宋时期的徽州府(现黄山市， 江西省婺源县，以及安徽省宣城市绩溪县组成)，徽菜是古徽州的地方特色，其独特的地理人文环境赋予徽菜独有的味道， 由于明清徽商的崛起，这种地方风味逐渐进入市肆，流传于苏、浙、赣、闽、沪、鄂以至长江中、下游区域，具有广泛的影响， 明清时期居于八大菜系之一。根据2009年出版的中国徽菜标准，正式确定徽菜为皖南菜、皖江菜、合肥菜、淮南菜、 皖北菜五大风味，沿江菜、沿淮菜、皖南菜的总称。因为徽州人喜爱常年饮茶，所以徽菜一般弄油赤酱，所谓重油、 重色、重火工，芡重，色深，味浓。同时由于徽州多山多水多食材，徽菜注重食物的本真，以烹饪山珍水产见长， 代表菜肴有“毛峰熏鲥鱼”、“黄山炖鸽”、“雪冬烧山鸡”等。
+				</p>
+				<br>
+				<p style="font-size: 20px;">徽菜来自徽州，离不开徽州这个特殊的地理环境提供的客观条件，其主要特点是喜用火腿佐味， 以冰糖提鲜，善于保持原料的本味、真味，口感以咸、鲜、香为主，放糖不觉其甜。 徽菜菜肴常用木炭风炉单炖单煮，原锅上桌，浓香四溢，体现了徽味古朴典雅的风貌。 徽菜起源于徽州府城歙县（古徽州），徽菜发端于唐宋，兴盛于明清，民国间徽菜在绩溪继续进一步发展。 安徽省绩溪县被授予中国徽菜之乡称号，每年均举办国际徽菜饮食文化节。
+				</p>
+				<br>
+				<p style="font-size: 20px;">徽菜擅长烤、炖，讲究火功，其特点是芡大油重。徽菜的主要特点： 烹调方法上擅长烧、炖、蒸，而爆、炒菜少，重油、重色，重火功。 主要名菜有火腿炖甲鱼、腌鲜鳜鱼、黄山炖鸽等上百种。
+				</p>
+				<br>
+				<p style="font-size: 20px;">徽菜的形成与江南古徽州独特的地理环境、人文环境、饮食习俗密切相关。 绿树丛荫、沟壑纵横、气候宜人的徽州自然环境，为徽菜提供了取之不尽，用之不竭的徽菜原料。 得天独厚的条件成为徽菜发展的有力物质保障，同时徽州名目繁多的风俗礼仪、时节活动， 也有力的促进了徽菜的形成和发展。在绩溪，民间宴席中，县城有六大盘、十碗细点四，岭北有吃四盘、 一品锅，岭南有九碗六、十碗八等。
+				</p>
+				<p></p>
+			</div>
+
+			<!-- 发展页面 -->
+			<div id="development" class="page">
+				<h2 style="text-align: center; margin-top: 50px;font-size: 32px;">徽菜的发展历程</h2>
+				<div class="timeline">
+					<div class="line"></div>
+					<!-- 竖线 -->
+					<div class="circle" style="top: 40px;"></div>
+					<div class="tooltip" style="top: 35px; left: 37%;">南宋时期</div>
+					<div class="content2" style="top: 0px; left: 55%;">
+						<p>据《徽州府志》记载，宋高宗问大学士汪藻“歙味”，汪藻回答说： “雪天牛尾狸，沙地马蹄鳖。”徽州在宋以前称为歙州，宋徽宗宣和三年（1121年）， 改名为徽州，治所在歙县。可见早在南宋时期，用徽州特产做菜已较为闻名。
+						</p>
+					</div>
+
+					<div class="circle" style="top: 200px;"></div>
+					<div class="tooltip" style="top: 195px; left: 52%">明清两代</div>
+					<div class="content2" style="top: 145px; left: 2%;">
+						<p>明代晚期至清代乾隆末年是徽商的鼎盛时期，实力及影响力位居全国10大商帮之首， 其足迹几遍天下，徽菜也伴随着徽商的发展，逐渐声名远扬。哪里有徽商，哪里就有徽菜馆。
+						</p>
+					</div>
+
+					<div class="circle" style="top: 360px;"></div>
+					<div class="tooltip" style="top: 355px; left: 37%">现代时期</div>
+					<div class="content2" style="top: 320px; left: 55%;">
+						<p>《徽菜标准化体系表》是我国八大菜系中第一部标准化体系表。 该标准是由安徽省标准化研究院、安徽省烹饪协会联合起草制定，并对外发布的。 2021年，徽菜烹饪技艺进入第五批国家级非遗项目名录，其申报单位是安徽省，保护单位是安徽省文化馆
+						</p>
+					</div>
+
+				</div>
+				<div class="text-with-outline" style="text-align: center; color: #A0522D; font-size: 40px; position: absolute; bottom: 40px; width: 95%;">
+					点击时间轴，一起探寻徽菜的历史吧！
+				</div>
+			</div>
+
+		</div>
+
+		<!-- JavaScript -->
+		<script>
+			// 当文档内容加载完成后执行
+			document.addEventListener("DOMContentLoaded", function() {
+				// 获取所有具有 .sidebar-link 类的元素，这些元素是侧边栏的链接
+				const sidebarLinks = document.querySelectorAll('.sidebar-link');
+				// 获取所有具有 .page 类的元素，这些元素是要切换显示的页面
+				const pages = document.querySelectorAll('.page');
+
+				// 初始时显示第一个页面，给第一个页面添加 active 类
+				pages[0].classList.add('active');
+
+				// 遍历所有的侧边栏链接
+				sidebarLinks.forEach((link, index) => {
+					// 给每个链接添加点击事件监听器
+					link.addEventListener('click', function(event) {
+						event.preventDefault(); // 阻止默认的链接跳转行为
+
+						// 移除所有页面的 active 类，隐藏所有页面
+						pages.forEach(page => page.classList.remove('active'));
+
+						// 根据当前链接的索引，显示对应的页面，给对应页面添加 active 类
+						pages[index].classList.add('active');
+					});
+				});
+			});
+
+			document.addEventListener("DOMContentLoaded", function() {
+				// 当文档内容加载完成时执行的函数
+				const circles = document.querySelectorAll('.circle');
+				const tooltips = document.querySelectorAll('.tooltip');
+				const contents = document.querySelectorAll('.content2');
+
+				circles.forEach((circle, index) => {
+					// 遍历所有带有类名 .circle 的元素
+					circle.addEventListener('mouseover', function() {
+						// 当鼠标移入圆圈元素时执行的函数
+						contents[index].style.display = 'block'; // 显示对应的内容块
+					});
+					circle.addEventListener('mouseout', function() {
+						// 当鼠标移出圆圈元素时执行的函数
+						contents[index].style.display = 'none'; // 隐藏对应的内容块
+					});
+				});
+			});
+		</script>
+
+	</body>
+
+</html>

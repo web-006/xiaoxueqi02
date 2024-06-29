@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>寻味之旅：探寻八大菜系</title>
+		<style>
+			body {
+				font-family: Arial, sans-serif;
+				margin: 0;
+				padding: 0;
+				background-image: url('img/beijing.png');
+				background-size: cover;
+			}
+			
+			.navbar {
+				background-color: #8B4513;
+				overflow: hidden;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				position: fixed;
+				top: 0;
+				width: 100%;
+				z-index: 1000;
+			}
+			
+			.navbar a {
+				color: white;
+				text-align: center;
+				text-decoration: none;
+				padding: 14px 20px;
+				font-size: 17px;
+				opacity: 0.6;
+			}
+			
+			.navbar a.current {
+				opacity: 1;
+				font-weight: bold;
+			}
+			
+			.navbar a:hover {
+				background-color: #A0522D;
+			}
+			
+			.sidebar {
+				background-color: #D2B48C;
+				position: fixed;
+				left: 0;
+				top: 0;
+				width: 100px;
+				height: 100%;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+			}
+			
+			.sidebar a {
+				color: #fff;
+				text-decoration: none;
+				margin: 10px 0;
+				padding: 10px;
+				border-radius: 5px;
+				opacity: 0.6;
+				transition: opacity 0.3s ease;
+			}
+			
+			.sidebar a:hover {
+				opacity: 1;
+				background-color: #B8860B;
+			}
+			
+			.content {
+				margin-left: 100px;
+				padding: 20px;
+				text-align: left;
+				font-family: Arial, sans-serif;
+				font-size: 16px;
+			}
+			
+			.page {
+				display: none;
+				/* 初始隐藏各个页面 */
+			}
+			
+			.page.active {
+				display: block;
+				/* 显示当前活跃页面 */
+			}
+			
+			.timeline {
+				position: relative;
+				/* 确保timeline容器可以定位其内部元素 */
+			}
+			
+			.image-container {
+				display: flex;
+				justify-content: center;
+				/* 图片水平居中 */
+				align-items: flex-start;
+				/* 垂直对齐方式，顶部对齐 */
+				margin-top: 100px;
+				/* 调整图片与导航栏之间的间距 */
+			}
+			
+			.image-with-text {
+				max-width: 45%;
+				/* 设置容器的最大宽度 */
+				margin: 0 auto;
+				/* 自动左右居中 */
+			}
+			
+			.image-container img {
+				max-width: 73%;
+				/* 图片最大宽度为容器的100% */
+				max-height: 300px; /* 图片高度最大为300像素 */
+				border-radius: 8px;
+				/* 圆角边框 */
+				box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+				/* 添加阴影效果 */
+			}
+			
+			.image-with-text p {
+				font-size: 20px;
+				/* 设置段落文字大小 */
+				margin-top: 15px;
+				/* 上边距 */
+				color: #555;
+				/* 段落文字颜色 */
+				text-align: left;
+				/* 左对齐 */
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<!-- 主导航栏 -->
+		<div class="navbar">
+			<a href="map.html">返回</a>
+			<!-- 链接页面 -->
+			<a href="chuancai1.html">起源发展</a>
+			<a href="chuancai2.html" class="current">厨师推荐</a>
+			<!-- 链接页面 -->
+			<a href="chuancai3.html">互动小游戏</a>
+			<!-- 链接页面 -->
+		</div>
+
+		<div class="image-container">
+			<div class="image-with-text">
+				<img src="img/chuan2.jpg" alt="麻婆豆腐">
+				<p>麻婆豆腐，是四川地区传统名菜之一，属于川菜，麻来自花椒，辣来自辣椒面，此菜成菜麻、辣、鲜、香、烫、整、嫩、酥，突出川菜麻辣味型的特点。2018年9月10日，“中国菜”正式发布，“麻婆豆腐“被评为“中国菜”四川十大经典名菜。</p>
+				<p>食材：豆腐（250克）、牛肉（75克）、蒜苗（1根）、豆豉（15克）、花椒粉（3克）、黄酒（5克）、盐（3克）、豌豆淀粉（5克）、花生油（15克）、小葱（5克）等。</p>
+				<p>做法：(1)将豆腐切成2厘米见方的块，放入加了少许盐的沸水中过一下，去除豆腥味，捞出用清水浸泡；</p>
+				<p>(2)豆豉等剁碎，蒜苗切段，姜切末；新鲜猪肉/牛肉切成小块或肉末；</p>
+				<p>(3)炒锅烧热，放油，放入牛肉/猪肉炒散；待牛肉馅炒成金黄色，放入豆瓣酱同炒；</p>
+				<p>(4)放入豆豉、姜末、辣椒粉同炒至牛肉/猪肉上色,入味；</p>
+				<p>(5)下肉汤煮沸，放入豆腐煮3分钟，加酱油、蒜苗段、糖，用盐调味，再用湿淀粉勾芡，盛出后撒上花椒面、葱末即可。</p>
+			</div>
+			<div class="image-with-text">
+				<img src="img/chuan1.jpg" alt="回锅肉">
+				<p>回锅肉，是四川传统菜式中家常菜肴的代表菜之一，所谓“回锅”，是指食材先煮后炒，两次入锅，二次烹调之意，将“回锅肉”翻译成英语，亦指“煮了第二遍的菜”。2018年9月10日，“中国菜”正式发布，“四川回锅肉”被评为“中国菜”四川十大经典名菜。</p>
+				<p>食材：五花肉200克，青蒜2棵，花椒20粒左右，姜片7、8片，豆瓣酱2大勺，料酒2大勺，白糖1大勺，盐1小勺，生抽1大勺。</p>
+				<p>(1)先将肉入冷水锅，放入姜片，倒一大勺料酒，大火将水烧开，然后转中火，煮半小时左右。等到用筷子戳进去能扎得透，且没有血水流出，即可关火。</p>
+				<p>(2)将煮好的肉晾凉，切成薄片，将青蒜斜刀切成寸长段。</p>
+				<P>(3)炒锅倒油，大火将锅烧热，将切好的肉片下锅，翻炒至肉片卷曲，肥肉透明最好，这样猪肉的油都被炒出来了，吃起来不腻。</P>
+				<p>(4)把肉推到锅的一边，倒入花椒粒，豆瓣酱翻炒，等看到油的颜色变红，就可以把肉扒拉过来炒匀了。</p>
+				<p>(5)倒入青蒜，料酒、盐、糖、生抽，翻炒均匀即可。 </p>
+
+			</div>
+
+	</body>
+
+</html>
